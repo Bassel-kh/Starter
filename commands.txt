@@ -1,0 +1,12 @@
+composer create-project --prefer-dist laravel/laravel starter "6.*"
+composer require laravel/ui "^1.2" --dev
+npm install && npm run dev
+php artisan ui vue --auth
+
+#29------------------
+php artisan migrate
+#31-----------------
+#031 - Laravel 6 email verification and configration -التحقق من البريد الالكتروني
+composer dump-autoload
+
+
