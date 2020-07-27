@@ -44,4 +44,7 @@ php artisan make:model Offer
 #048-Laravel validate request before Inserting database (validation rules)
 #049-Laravel show request validation to form (form validation errors)
 
+#51-------------------------------------------
+#051- Laravel Request Validation Message in Multi Language - بلارافل
+
 
