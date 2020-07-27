@@ -84,7 +84,11 @@
                 <div class="title m-b-md">
                     Add your Offer
                 </div>
-
+                @if(Session::has('success'))
+                    <div class="alert alert-success" role="alert">
+                        تم إضافة العرض بنجاح!
+                    </div>
+                @endif
 {{--                <form method = "POST" action="{{ url('offer\store') }}">--}}
                 <form method = "POST" action="{{ route('offer.store') }}">
 
@@ -94,15 +98,27 @@
                     <div class="form-group">
                         <label for="OfferName">Offer Name</label>
                         <input type="text" class="form-control"name="name"  placeholder="Enter Offer Name">
+                        @error('name')
+                        <small id="emailHelp" class="form-text text-danger">{{ $message }}</small>
+                        @enderror
                     </div>
+
                     <div class="form-group">
                         <label for="OfferPrice">Offer Price</label>
                         <input type="text" class="form-control" name="price" placeholder="price">
+                        @error('price')
+                        <small id="emailHelp" class="form-text text-danger">{{ $message }}</small>
+                        @enderror
                     </div>
+
                     <div class="form-group">
                         <label for="OfferDetails">Offer Details</label>
                         <input type="text" class="form-control" name="details" placeholder="details">
+                        @error('details')
+                        <small id="emailHelp" class="form-text text-danger">{{ $message }}</small>
+                        @enderror
                     </div>
+
 
                     <button type="submit" class="btn btn-primary">Save Offer </button>
                 </form>

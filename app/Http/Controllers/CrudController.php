@@ -54,7 +54,8 @@ class CrudController extends Controller
         $validator = Validator::make($request -> all(),$roles, $messages);
 
         if($validator -> fails()){
-            return  $validator -> errors();
+//            return  $validator -> errors();
+            return  redirect() ->back() -> withErrors($validator) ->withInputs($request -> all());
         }
         //insert
         Offer::create([
@@ -63,7 +64,9 @@ class CrudController extends Controller
             'details'=> $request -> details,
         ]);
 
-        return 'Save successfully';
+//        return 'Save successfully';
+        return redirect() -> back() -> with(['success' => 'تم إضافة العرض بنجاح']);
+
     }
 
     protected function  getRoles(){
@@ -79,7 +82,8 @@ class CrudController extends Controller
         return [
             'name.required' => 'اسم العرض مطلوب',
             'name.unique' => 'اسم العرض مكرر',
-            'price.required' => 'سعر العرض يجب أن يكون أرقام',
+            'price.numeric' => 'سعر العرض يجب أن يكون أرقام',
+            'price.required' => 'سعر العرض مطلوب',
             'details.required' => 'تفاصيل العرض مطلوب',
         ];
     }

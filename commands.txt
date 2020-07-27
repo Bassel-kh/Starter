@@ -42,5 +42,6 @@ php artisan make:model Offer
   SQL: ALTER TABLE card_games MODIFY id int NOT NULL AUTO_INCREMENT;
 #047 - Laravel insert to database using bootstrap form
 #048-Laravel validate request before Inserting database (validation rules)
+#049-Laravel show request validation to form (form validation errors)
 
 
