@@ -9,4 +9,38 @@ php artisan migrate
 #031 - Laravel 6 email verification and configration -التحقق من البريد الالكتروني
 composer dump-autoload
 
+#034 - laravel Login and Register With Facebook Using Laravel Socialite
+composer require laravel/socialite
+ID fase app : 1281022532389336
+
+#35------------------------------------
+curl.cainfo = “certificate D:\wamp64\www\cacert.pem” in php.ini
+php artisan optimize:clear
+
+#39------------------------------------
+#039 - complete guide for laravel task scheduler - شرح task scheduler
+php artisan make:command command_name
+php artisan make:command expiration
+
+#40------------------------------------
+#040 - Expire Users after 5 minute using laravel task sheduler example
+php artisan schedule:run
+
+#41------------------------------------
+#041 - How To send daily Emails using Laravel task Sheduler - ارسال بريد الكتروني
+php artisan make:command notify
+#042 - How To send daily Emails using Laravel task Sheduler part2
+php artisan make:mail mail_name
+php artisan make:mail NotifyEmail
+
+#044---------------------------------------
+#044 - what is laravel Model and how to use - شرح المودل بلارافل
+php artisan make:model Model_name
+php artisan make:model Offer
+#045 - advanced in Laravel Models&different between fillables and hiddens
+#046 - Laravel how to insert to database basic example - ادخال وتحديث الببانات
+  SQL: ALTER TABLE card_games MODIFY id int NOT NULL AUTO_INCREMENT;
+#047 - Laravel insert to database using bootstrap form
+#048-Laravel validate request before Inserting database (validation rules)
+
 
