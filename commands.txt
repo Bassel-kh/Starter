@@ -46,5 +46,17 @@ php artisan make:model Offer
 
 #51-------------------------------------------
 #051- Laravel Request Validation Message in Multi Language - بلارافل
+#052 - Laravel How to make Multi Language site using (mcamara Package)
+    https://github.com/mcamara/laravel-localization
+        {
+            Install the package via composer: composer require mcamara/laravel-localization
+
+            Config Files
+            In order to edit the default configuration you may execute:
+
+                php artisan vendor:publish --provider="Mcamara\LaravelLocalization\LaravelLocalizationServiceProvider"
+            After that, config/laravellocalization.php will be created.
+        }
+
 
 
