@@ -37,7 +37,8 @@ class OfferRequest extends FormRequest
         return [
             'name_ar.required' => trans('messages.offer name required'),
             'name_en.required' => trans('messages.offer name required'),
-            'name.unique' =>__('messages.offer name must be unique'),
+            'name_ar.unique' =>__('messages.offer name must be unique'),
+            'name_en.unique' =>__('messages.offer name must be unique'),
             'price.numeric' => __('messages.Offer price Must be numeric'),
             'price.required' => __('messages.offer price required'),
             'details.required' => __('messages.Offer details required'),

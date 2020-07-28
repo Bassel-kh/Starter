@@ -92,11 +92,23 @@ class CrudController extends Controller
     /**
      * updateOffer
      */
-    public function updateOffer(OfferRequest $request){
+    public function updateOffer(OfferRequest $request, $offer_id){
         // validation request
 
-        // update Data
+        // check if Offer exists
+        $offer = Offer::find($offer_id);
+        if(!$offer)
+            return redirect() -> back();
 
+        // update Data
+        $offer -> update($request ->all());
+        // or
+//        $offer -> update([
+//                'name_ar' => $request -> name_ar,'name_en' => $request -> name_ar,
+//                'price' => $request -> price, 'details_ar' => $request -> details_ar,
+//                'details_en' => $request -> details_en,
+//        ]);
+            return  redirect() -> back() ->with(['success' => 'تم التحديث بنجاح']);
     }
 
 //    protected function  getRoles(){

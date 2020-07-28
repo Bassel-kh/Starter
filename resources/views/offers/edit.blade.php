@@ -41,7 +41,7 @@
 
     <div class="content">
         <div class="title m-b-md">
-            {{__('messages.Add your offer')}}
+            {{__('messages.Offer Edit')}}
         </div>
         @if(Session::has('success'))
             <div class="alert alert-success" role="alert">
@@ -50,7 +50,7 @@
         @endif
         {{--                <form method = "POST" action="{{ url('offer\store') }}">--}}
 {{--        <form method = "POST" action="{{ url('offers/update/'.$offer -> id) }}">--}}
-        <form method = "POST" action="{{ route('offers.update', $offer -> id) }}">
+        <form method = "POST" action="{{ route('offers.update', [$offer -> id]) }}">
 
 
         @csrf
