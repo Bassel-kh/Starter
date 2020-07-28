@@ -6,6 +6,7 @@ use App\Http\Requests\OfferRequest;
 use App\Models\Offer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use LaravelLocalization;
 
 class CrudController extends Controller
 {
@@ -92,9 +93,9 @@ class CrudController extends Controller
 //        ];
 //    }
 
-
     protected function getAllOffers(){
-         $offers = Offer::select('id', 'name', 'price', 'details',) -> get(); // return collection
+         $offers = Offer::select('id', 'price', 'name_' . LaravelLocalization::getCurrentLocale() . ' as name',
+             'details_' . LaravelLocalization::getCurrentLocale() . ' as details') -> get(); // return collection
          return view('offers.all', compact('offers'));
     }
 }
