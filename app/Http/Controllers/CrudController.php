@@ -78,7 +78,7 @@ class CrudController extends Controller
     }
 
 
-    protected  function  getMessages(){
+//    protected  function  getMessages(){
 //        return [
 //            'name.required' => 'اسم العرض مطلوب',
 //            'name.unique' => 'اسم العرض مكرر',
@@ -86,12 +86,12 @@ class CrudController extends Controller
 //            'price.required' => 'سعر العرض مطلوب',
 //            'details.required' => 'تفاصيل العرض مطلوب',
 //        ];
-
+    protected  function  getMessages(){
         return [
             'name.required' => trans('messages.offer name required'),
             'name.unique' =>__('messages.offer name must be unique'),
             'price.numeric' => __('messages.Offer price Must be numeric'),
-            'price.required' => 'سعر العرض مطلوب',
+            'price.required' => __('messages.offer price required'),
             'details.required' => 'تفاصيل العرض مطلوب',
         ];
     }
