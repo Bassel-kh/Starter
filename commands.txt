@@ -64,6 +64,10 @@ php artisan make:model Offer
     php artisan make:request OfferRequest
 #55----------------------------------------------------
 #055-Laravel How To save data in multi language database تعدد اللغات بالموقع
+#56----------------------------------------------------
+#056- Laravel retrieve data from database based on user language استرجاع البيانات
+#57----------------------------------------------------
+#057 - Laravel How to update database using multi language data part 1
 
 
 

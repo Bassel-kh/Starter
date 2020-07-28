@@ -34,11 +34,13 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),'middleware' => [ 'lo
             Route::get('create', 'CrudController@create');
             Route::post('store', 'CrudController@store') -> name('offer.store');
 
+            Route::get('edit/{offer_id}', 'CrudController@editOffer');
+            Route::post('update/{offer_id}', 'CrudController@updateOffer') -> name('offers.update');
+
             Route::get('all', 'CrudController@getAllOffers');
 
         });
 
 });
-Route::get('all',function () {
-    return view('offers.all');} );
+
 

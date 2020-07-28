@@ -74,6 +74,31 @@ class CrudController extends Controller
 
     }
 
+    /**
+     * editOffer
+     */
+    public function editOffer($offer_id){
+//        Offer::findOrFail($offer_id);
+        $offer = Offer::find($offer_id); // search in given table by Id only
+
+        if(!$offer){
+            return redirect() -> back();
+        }
+        $offer = Offer::select('id', 'name_ar', 'name_en', 'price', 'details_ar', 'details_en') -> find($offer_id);
+        return  view('offers.edit', compact('offer'));
+
+    }
+
+    /**
+     * updateOffer
+     */
+    public function updateOffer(OfferRequest $request){
+        // validation request
+
+        // update Data
+
+    }
+
 //    protected function  getRoles(){
 //        return [
 //            'name' => 'required|max:100|unique:offers,name',
@@ -98,4 +123,5 @@ class CrudController extends Controller
              'details_' . LaravelLocalization::getCurrentLocale() . ' as details') -> get(); // return collection
          return view('offers.all', compact('offers'));
     }
+
 }
