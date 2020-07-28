@@ -25,15 +25,18 @@ class OfferRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|max:100|unique:offers,name',
+            'name_ar' => 'required|max:100|unique:offers,name_ar',
+            'name_en' => 'required|max:100|unique:offers,name_en',
             'price' => 'required|numeric',
-            'details' => 'required',
+            'details_ar' => 'required',
+            'details_en' => 'required',
         ];
     }
 
         public function messages(){
         return [
-            'name.required' => trans('messages.offer name required'),
+            'name_ar.required' => trans('messages.offer name required'),
+            'name_en.required' => trans('messages.offer name required'),
             'name.unique' =>__('messages.offer name must be unique'),
             'price.numeric' => __('messages.Offer price Must be numeric'),
             'price.required' => __('messages.offer price required'),

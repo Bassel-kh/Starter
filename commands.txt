@@ -62,6 +62,9 @@ php artisan make:model Offer
 #054 -Improve your code - اكتب كود محترف
     php artisan make:request RequestName
     php artisan make:request OfferRequest
+#55----------------------------------------------------
+#055-Laravel How To save data in multi language database تعدد اللغات بالموقع
+
 
 
 

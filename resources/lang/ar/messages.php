@@ -19,7 +19,7 @@ return [
     "offer name required" => 'أسم العرض مطلوب',
     "offer name must be unique" => 'أسم العرض يجب الا يتكرر',
     "Add your offer" => 'أضافه عرض جديد ',
-    "Offer Name ar"   => 'أسم العرض العربي',
+    "Offer Name ar"   => 'أسم العرض بالعربي',
     "Offer Name en"   => 'أسم العرض بالانجليزي',
     "Offer Price"  => 'سعر العرض',
     "offer price required" => 'سعر العرض مطلوب',

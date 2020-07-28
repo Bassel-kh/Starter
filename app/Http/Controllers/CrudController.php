@@ -60,9 +60,12 @@ class CrudController extends Controller
 //        }
         //insert
         Offer::create([
-            'name'=> $request -> name,
+            'name_ar'=> $request -> name_ar,
+            'name_en'=> $request -> name_en,
             'price'=> $request -> price,
-            'details'=> $request -> details,
+            'details_ar'=> $request -> details_ar,
+            'details_en'=> $request -> details_en,
+
         ]);
 
 //        return 'Save successfully';
@@ -81,14 +84,6 @@ class CrudController extends Controller
 
 //    protected  function  getMessages(){
 //        return [
-//            'name.required' => 'اسم العرض مطلوب',
-//            'name.unique' => 'اسم العرض مكرر',
-//            'price.numeric' => 'سعر العرض يجب أن يكون أرقام',
-//            'price.required' => 'سعر العرض مطلوب',
-//            'details.required' => 'تفاصيل العرض مطلوب',
-//        ];
-//    protected  function  getMessages(){
-//        return [
 //            'name.required' => trans('messages.offer name required'),
 //            'name.unique' =>__('messages.offer name must be unique'),
 //            'price.numeric' => __('messages.Offer price Must be numeric'),
@@ -97,4 +92,9 @@ class CrudController extends Controller
 //        ];
 //    }
 
+
+    protected function getAllOffers(){
+         $offers = Offer::select('id', 'name', 'price', 'details',) -> get(); // return collection
+         return view('offers.all', compact('offers'));
+    }
 }
