@@ -58,6 +58,10 @@ php artisan make:model Offer
             After that, config/laravellocalization.php will be created.
         }
 #053 - Laravel localization translate all page use (mcamara Package)
+#054---------------------------------------------------
+#054 -Improve your code - اكتب كود محترف
+    php artisan make:request RequestName
+    php artisan make:request OfferRequest
 
 
 

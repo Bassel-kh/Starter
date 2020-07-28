@@ -26,6 +26,8 @@ return [
     "Offer price Must be numeric" => 'Offer price Must be numeric',
     "Offer details ar" => 'ar Offer Details',
     "Offer details en" => 'en Offer Details',
+    "Offer details required" => 'Offer details required',
+
     "Save Offer" => 'Save',
     "Offer Name" => "Offer name",
     "Offer details" => "Offer details",

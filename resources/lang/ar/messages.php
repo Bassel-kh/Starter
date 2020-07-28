@@ -26,6 +26,7 @@ return [
     "Offer price Must be numeric" => 'سعر العرض يجب أن يكون أرقام',
     "Offer details ar" => 'تفاصيل العرض بالعربي',
     "Offer details en" => 'تفاصيل العرض بالانجليزي',
+    "Offer details required" => 'تفاصيل العرض مطلوب',
     "Save Offer"  => 'حفظ',
     "Offer Name" => 'اسم العرض',
     "operation" => 'العمليات',
