@@ -83,6 +83,8 @@ php artisan make:listener ListenerName
 php artisan make:listener IncreaseCounter
 
 php artisan make:model Models\Video
+#063 - Laravel events and Listener with youtub viewer example
+
 
 
 
