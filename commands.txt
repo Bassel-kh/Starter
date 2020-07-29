@@ -74,6 +74,15 @@ php artisan make:model Offer
 #059 - Laravel how to upload and save image to database and folder رفع الصور الملفات لارافل
 #60----------------------------------------------------
 #060 - What is Laravel Traits
+#62----------------------------------------------------
+#062 - What is Laravel Events and Listener with Examples
+php artisan make:event EventName
+php artisan make:event VideoViewer
+(App\Events)
+php artisan make:listener ListenerName
+php artisan make:listener IncreaseCounter
+
+php artisan make:model Models\Video
 
 
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\OfferRequest;
 use App\Models\Offer;
+use App\Models\Video;
 use App\Traits\OfferTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -143,6 +144,11 @@ class CrudController extends Controller
          $offers = Offer::select('id', 'price', 'name_' . LaravelLocalization::getCurrentLocale() . ' as name',
              'details_' . LaravelLocalization::getCurrentLocale() . ' as details') -> get(); // return collection
          return view('offers.all', compact('offers'));
+    }
+
+    public function getVideo(){
+        $video = Video::first();
+        return view('video') ->with('video',$video);
     }
 
 //    /////////////////////// Functions ///////////////////////////////////
