@@ -68,7 +68,10 @@ php artisan make:model Offer
 #056- Laravel retrieve data from database based on user language استرجاع البيانات
 #57----------------------------------------------------
 #057 - Laravel How to update database using multi language data part 1
- #058 - Laravel How to update database using multi language data part 2
+#058 - Laravel How to update database using multi language data part 2
+
+#59----------------------------------------------------
+#059 - Laravel how to upload and save image to database and folder رفع الصور الملفات لارافل
 
 
 

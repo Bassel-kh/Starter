@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use LaravelLocalization;
 
+
 class CrudController extends Controller
 {
     /**
@@ -59,8 +60,17 @@ class CrudController extends Controller
 ////            return  $validator -> errors();
 //            return  redirect() ->back() -> withErrors($validator) ->withInputs($request -> all());
 //        }
+
+        // save photo in folder
+        //$file_extension = $request -> photo -> getClientOriginalExtension();
+        $file_original_name = $request -> photo -> getClientOriginalName();
+        $file_name = time().$file_original_name;
+        $path = 'images/offers';
+        $request -> photo -> move($path, $file_name);
+
         //insert
         Offer::create([
+            'photo'=> $file_name,
             'name_ar'=> $request -> name_ar,
             'name_en'=> $request -> name_en,
             'price'=> $request -> price,

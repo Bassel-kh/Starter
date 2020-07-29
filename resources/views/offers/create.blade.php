@@ -49,10 +49,17 @@
             </div>
         @endif
         {{--                <form method = "POST" action="{{ url('offer\store') }}">--}}
-        <form method = "POST" action="{{ route('offer.store') }}">
+        <form method = "POST" action="{{ route('offer.store') }}" enctype="multipart/form-data">
 
             @csrf
             {{--<input name="_token" value="{{ csrf_token() }}">--}}
+            <div class="form-group">
+                <label for="OfferName">{{__('messages.offer select image')}}</label>
+                <input type="file" class="form-control"name="photo"  >
+                @error('photo')
+                <small id="emailHelp" class="form-text text-danger">{{ $message }}</small>
+                @enderror
+            </div>
 
             <div class="form-group">
                 <label for="OfferName">{{__('messages.Offer Name ar')}}</label>

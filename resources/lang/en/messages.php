@@ -28,6 +28,7 @@ return [
     "Offer details en" => 'en Offer Details',
     "Offer details required" => 'Offer details required',
     "Offer Edit" => 'Offer Edit',
+    "offer select image" => 'select image for offer',
     "Save Offer" => 'Save',
     "Offer Name" => "Offer name",
     "Offer details" => "Offer details",
