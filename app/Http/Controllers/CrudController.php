@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\OfferRequest;
 use App\Models\Offer;
+use App\Traits\OfferTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use LaravelLocalization;
@@ -11,6 +12,7 @@ use LaravelLocalization;
 
 class CrudController extends Controller
 {
+    use OfferTrait;
     /**
      * Create a new controller instance.
      *
@@ -62,11 +64,8 @@ class CrudController extends Controller
 //        }
 
         // save photo in folder
-        //$file_extension = $request -> photo -> getClientOriginalExtension();
-        $file_original_name = $request -> photo -> getClientOriginalName();
-        $file_name = time().$file_original_name;
-        $path = 'images/offers';
-        $request -> photo -> move($path, $file_name);
+        $file_name = $this -> saveImage( $request -> photo ,'images/offers');
+
 
         //insert
         Offer::create([
@@ -145,5 +144,17 @@ class CrudController extends Controller
              'details_' . LaravelLocalization::getCurrentLocale() . ' as details') -> get(); // return collection
          return view('offers.all', compact('offers'));
     }
+
+//    /////////////////////// Functions ///////////////////////////////////
+//    protected function saveImage($photo, $folder){
+//
+//        //$file_extension = $request -> photo -> getClientOriginalExtension();
+//        $file_original_name =  $photo -> getClientOriginalName();
+//        $file_name = time().$file_original_name;
+//        $path = $folder;
+//        $photo -> move($path, $file_name);
+//
+//        return $file_name;
+//    }
 
 }

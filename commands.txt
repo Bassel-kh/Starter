@@ -72,6 +72,8 @@ php artisan make:model Offer
 
 #59----------------------------------------------------
 #059 - Laravel how to upload and save image to database and folder رفع الصور الملفات لارافل
+#60----------------------------------------------------
+#060 - What is Laravel Traits
 
 
 
