@@ -1,7 +1,19 @@
 @include('layouts.header')
 @include('layouts.navBar')
 
+
+
 <div class=" position-ref full-height">
+    @if(Session::has('success'))
+        <div class="alert alert-success" role="alert">
+            {{Session::get('success')}}
+        </div>
+    @endif
+        @if(Session::has('error'))
+            <div class="alert alert-success" role="alert">
+                {{Session::get('error')}}
+            </div>
+        @endif
     <table class="table">
         <thead>
         <tr>
@@ -20,7 +32,10 @@
             <td>{{$offer -> name}}</td>
             <td>{{$offer -> price}}</td>
             <td>{{$offer -> details}}</td>
-            <td> <a href="{{url('offers/edit/'.$offer -> id)}}" class="btn btn-success">{{__('messages.update')}}</a></td>
+            <td>
+                <a href="{{url('offers/edit/'.$offer -> id)}}" class="btn btn-success">{{__('messages.update')}}</a>
+                <a href="{{route('offers.delete',$offer -> id)}}" class="btn btn-danger">{{__('messages.delete')}}</a>
+            </td>
         </tr>
         @endforeach
         </tbody>

@@ -122,6 +122,20 @@ class CrudController extends Controller
             return  redirect() -> back() ->with(['success' => 'تم التحديث بنجاح']);
     }
 
+    public function  deleteOffer($offer_id){
+        // check if Offer exists
+        $offer = Offer::find($offer_id); // Offer::where('id','','$offer_id') -> first();
+        if(!$offer)
+            return redirect() -> back() -> with(['error' => __('messages.offer not exist')]);
+
+        // delete Data
+        $offer -> delete();
+
+//        return  redirect() -> back() ->with(['success' => __('messages.offer deleted successfully')]);
+        return  redirect() -> route('offers.all',$offer_id) ->with(['success' => __('messages.offer deleted successfully')]);
+
+    }
+
 //    protected function  getRoles(){
 //        return [
 //            'name' => 'required|max:100|unique:offers,name',
@@ -142,9 +156,9 @@ class CrudController extends Controller
 //    }
 
     protected function getAllOffers(){
-         $offers = Offer::select('id', 'price', 'name_' . LaravelLocalization::getCurrentLocale() . ' as name',
-             'details_' . LaravelLocalization::getCurrentLocale() . ' as details') -> get(); // return collection
-         return view('offers.all', compact('offers'));
+        $offers = Offer::select('id', 'price', 'name_' . LaravelLocalization::getCurrentLocale() . ' as name',
+            'details_' . LaravelLocalization::getCurrentLocale() . ' as details') -> get(); // return collection
+        return view('offers.all', compact('offers'));
     }
 
     public function getVideo(){
