@@ -22,6 +22,7 @@ return [
     "Offer Name ar" => 'Arabic Offer Name',
     "Offer Name en" => 'English Offer Name',
     "Offer Price" => 'Offer Price',
+    "Offer Photo" => 'Offer Photo',
     "offer price required" => 'offer price required',
     "Offer price Must be numeric" => 'Offer price Must be numeric',
     "Offer details ar" => 'ar Offer Details',

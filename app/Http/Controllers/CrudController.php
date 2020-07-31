@@ -157,7 +157,7 @@ class CrudController extends Controller
 
     protected function getAllOffers(){
         $offers = Offer::select('id', 'price', 'name_' . LaravelLocalization::getCurrentLocale() . ' as name',
-            'details_' . LaravelLocalization::getCurrentLocale() . ' as details') -> get(); // return collection
+            'details_' . LaravelLocalization::getCurrentLocale() . ' as details', 'photo') -> get(); // return collection
         return view('offers.all', compact('offers'));
     }
 

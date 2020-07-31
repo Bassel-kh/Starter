@@ -91,6 +91,9 @@ php artisan make:model Models\Video
 #066 - laravel how to Insert data to database using Ajax - Ajax Crud
 php artisan make:controller ControllerName
 php artisan make:controller OfferController
+#067----------------------------------------------------
+#067 - Laravel save image to database using Ajax and show response json
+#068 - laravel delete from database using Ajax- Ajax crud لارافل مع اجاكس
 
 
 

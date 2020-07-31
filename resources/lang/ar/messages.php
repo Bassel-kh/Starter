@@ -22,6 +22,7 @@ return [
     "Offer Name ar"   => 'أسم العرض بالعربي',
     "Offer Name en"   => 'أسم العرض بالانجليزي',
     "Offer Price"  => 'سعر العرض',
+    "Offer Photo" => 'صورة العرض',
     "offer price required" => 'سعر العرض مطلوب',
     "Offer price Must be numeric" => 'سعر العرض يجب أن يكون أرقام',
     "Offer details ar" => 'تفاصيل العرض بالعربي',

@@ -48,7 +48,11 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),'middleware' => [ 'lo
 ##################################### Begin Ajax Route #####################################
 Route::group(['prefix' => 'ajax_offers'], function (){
     Route::get('create', 'OfferController@create');
-    Route::post('store', 'OfferController@store') -> name('ajax.offer.store');
+    Route::post('store', 'OfferController@store') -> name('ajax.offers.store');
+    Route::get('all', 'OfferController@all') ->name('ajax.offers.all');
+    Route::post('delete', 'OfferController@delete') ->name('ajax.offers.delete');
+
+
 
 });
 ##################################### End Ajax Route #####################################

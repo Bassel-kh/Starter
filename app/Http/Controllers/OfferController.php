@@ -6,6 +6,8 @@ use App\Http\Requests\OfferRequest;
 use App\Models\Offer;
 use App\Traits\OfferTrait;
 use Illuminate\Http\Request;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
+
 class OfferController extends Controller
 {
     use OfferTrait;
@@ -14,6 +16,9 @@ class OfferController extends Controller
         return view('ajaxoffers.create');
     }
 
+    /**
+     *   Methode store
+     */
     // this method without validation
     public function store(OfferRequest $request){
         // save offer into DB using AJAX
@@ -43,6 +48,38 @@ class OfferController extends Controller
                 'msg'=> 'فشل الحفظ الرجاء المحاولة محدداً',
             ]);
         }
+
+    }
+
+    /**
+     *   Methode all
+     */
+    public function  all(){
+         $offers = Offer::select(
+            'id',
+            'price',
+            'photo',
+            'name_' . LaravelLocalization::getCurrentLocale() . ' as name',
+            'details_' . LaravelLocalization::getCurrentLocale() . ' as details'
+        ) ->limit(10)-> get(); // return collection
+        return view('ajaxoffers.all', compact('offers'));
+    }
+    /**
+     *   Methode Delete
+     */
+    public function  delete(Request $request){
+        $offer = Offer::find($request -> id);   // Offer::where('id','$offer_id') -> first();
+
+        if (!$offer)
+            return redirect()->back()->with(['error' => __('messages.offer not exist')]);
+
+        $offer->delete();
+
+        return response()->json([
+            'status' => true,
+            'msg' => 'تم الحذف بنجاح',
+            'id' =>  $request -> id
+        ]);
 
     }
 }
