@@ -1,104 +1,107 @@
-@include('layouts.header')
-<body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+@extends('layouts.app')
+@section('content')
+    <div class="container">
+        <div class="alert alert-success" id="success_msg" style="display: none;" >
+            تم التحديث بنجاح
+        </div>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
-                <li class="nav-item active">
-                    <a class="nav-link"
-                       href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}"> {{ $properties['native'] }}
-                        <span class="sr-only">(current)</span></a>
-                </li>
-            @endforeach
+        <div class="flex-center position-ref full-height">
+            {{--//////////////////////////////////////////////////////////////////////////////////--}}
 
-        </ul>
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
-    </div>
-</nav>
-<div class="flex-center position-ref full-height">
-    @if (Route::has('login'))
-        <div class="top-right links">
-            @auth
-                <a href="{{ url('/home') }}">Home</a>
-            @else
-                <a href="{{ route('login') }}">Login</a>
-
-                @if (Route::has('register'))
-                    <a href="{{ route('register') }}">Register</a>
+            <div class="content">
+                <div class="title m-b-md">
+                    {{__('messages.Add your offer')}}
+                </div>
+                @if(Session::has('success'))
+                    <div class="alert alert-success" role="alert">
+                        تم إضافة العرض بنجاح!
+                    </div>
                 @endif
-            @endauth
+                {{--                <form method = "POST" action="{{ url('offer\store') }}">--}}
+                <form method = "POST" id="offerFormUpdate" action="" enctype="multipart/form-data">
+
+                    @csrf
+                    {{--<input name="_token" value="{{ csrf_token() }}">--}}
+                    <div class="form-group">
+                        <label for="OfferName">{{__('messages.offer select image')}}</label>
+                        <input type="file" class="form-control"name="photo"  >
+
+                        @error('photo')
+                        <small id="emailHelp" class="form-text text-danger">{{ $message }}</small>
+                        @enderror
+                    </div>
+
+                    <div class="form-group">
+                        <label for="OfferName">{{__('messages.Offer Name ar')}}</label>
+                        <input type="text" class="form-control" value="{{$offer -> name_ar}}" name="name_ar"  placeholder="{{__('messages.Offer Name')}}">
+                        @error('name_ar')
+                        <small id="emailHelp" class="form-text text-danger">{{ $message }}</small>
+                        @enderror
+                        <input type="text" class="form-control" value="{{$offer -> id}}" name="offer_id" style="display: none" >
+
+                    </div>
+                    <div class="form-group">
+                        <label for="OfferName">{{__('messages.Offer Name en')}}</label>
+                        <input type="text" class="form-control" value="{{$offer -> name_en}}" name="name_en"  placeholder="{{__('messages.Offer Name')}}">
+                        @error('name_en')
+                        <small id="emailHelp" class="form-text text-danger">{{ $message }}</small>
+                        @enderror
+                    </div>
+
+                    <div class="form-group">
+                        <label for="OfferPrice">{{__('messages.Offer Price')}}</label>
+                        <input type="text" class="form-control" value="{{$offer -> price}}"  name="price" placeholder="{{__('messages.Offer Price')}}">
+                        @error('price')
+                        <small id="emailHelp" class="form-text text-danger">{{ $message }}</small>
+                        @enderror
+                    </div>
+
+                    <div class="form-group">
+                        <label for="OfferDetails">{{__('messages.Offer details ar')}}</label>
+                        <input type="text" class="form-control" value="{{$offer -> details_ar}}"  name="details_ar" placeholder="{{__('messages.Offer details')}}">
+                        @error('details_ar')
+                        <small id="emailHelp" class="form-text text-danger">{{ $message }}</small>
+                        @enderror
+                    </div>
+                    <div class="form-group">
+                        <label for="OfferDetails">{{__('messages.Offer details en')}}</label>
+                        <input type="text" class="form-control" value="{{$offer -> details_en}}" name="details_en" placeholder="{{__('messages.Offer details')}}">
+                        @error('details_en')
+                        <small id="emailHelp" class="form-text text-danger">{{ $message }}</small>
+                        @enderror
+                    </div>
+
+
+                    <button id="update_offer" class="btn btn-primary">{{__('messages.Save Offer')}} </button>
+                </form>
+
+            </div>
         </div>
-    @endif
-{{--//////////////////////////////////////////////////////////////////////////////////--}}
-
-    <div class="content">
-        <div class="title m-b-md">
-            {{__('messages.Offer Edit')}}
-        </div>
-        @if(Session::has('success'))
-            <div class="alert alert-success" role="alert">
-                تم إضافة العرض بنجاح!
-            </div>
-        @endif
-        {{--                <form method = "POST" action="{{ url('offer\store') }}">--}}
-{{--        <form method = "POST" action="{{ url('offers/update/'.$offer -> id) }}">--}}
-        <form method = "POST" action="{{ route('offers.update', [$offer -> id]) }}">
-
-
-        @csrf
-            {{--<input name="_token" value="{{ csrf_token() }}">--}}
-
-            <div class="form-group">
-                <label for="OfferName">{{__('messages.Offer Name ar')}}</label>
-                <input type="text" class="form-control"name="name_ar" value="{{$offer -> name_ar}}" placeholder="{{__('messages.Offer Name')}}">
-                @error('name_ar')
-                <small id="emailHelp" class="form-text text-danger">{{ $message }}</small>
-                @enderror
-            </div>
-            <div class="form-group">
-                <label for="OfferName">{{__('messages.Offer Name en')}}</label>
-                <input type="text" class="form-control"name="name_en" value="{{$offer -> name_en}}"  placeholder="{{__('messages.Offer Name')}}">
-                @error('name_en')
-                <small id="emailHelp" class="form-text text-danger">{{ $message }}</small>
-                @enderror
-            </div>
-
-            <div class="form-group">
-                <label for="OfferPrice">{{__('messages.Offer Price')}}</label>
-                <input type="text" class="form-control" name="price" value="{{$offer -> price}}" placeholder="{{__('messages.Offer Price')}}">
-                @error('price')
-                <small id="emailHelp" class="form-text text-danger">{{ $message }}</small>
-                @enderror
-            </div>
-
-            <div class="form-group">
-                <label for="OfferDetails">{{__('messages.Offer details ar')}}</label>
-                <input type="text" class="form-control" name="details_ar" value="{{$offer -> details_ar}}" placeholder="{{__('messages.Offer details')}}">
-                @error('details_ar')
-                <small id="emailHelp" class="form-text text-danger">{{ $message }}</small>
-                @enderror
-            </div>
-            <div class="form-group">
-                <label for="OfferDetails">{{__('messages.Offer details en')}}</label>
-                <input type="text" class="form-control" name="details_en"  value="{{$offer -> details_en}}" placeholder="{{__('messages.Offer details')}}">
-                @error('details_en')
-                <small id="emailHelp" class="form-text text-danger">{{ $message }}</small>
-                @enderror
-            </div>
-
-
-            <button type="submit" class="btn btn-primary">{{__('messages.Save Offer')}} </button>
-        </form>
-
     </div>
-</div>
-</body>
-</html>
+@section('scripts')
+    <script>
+        $(document).on('click','#update_offer', function (e) {
+            e.preventDefault();
+
+            var formData = new FormData($('#offerFormUpdate ')[0])
+            $.ajax({
+                type:'post',
+                enctype:"multipart/form-data",
+                url:"{{route('ajax.offers.update')}}",
+                data: formData ,
+                processData: false,
+                contentType: false,
+                cache:false,
+                success: function (data) {
+                    if(data.status == true)
+                        // alert(data.msg);
+                        $('#success_msg').show();
+                },
+                error: function (reject) {
+                }
+
+            })
+        });
+    </script>
+@stop
+@stop

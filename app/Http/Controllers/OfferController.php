@@ -82,4 +82,48 @@ class OfferController extends Controller
         ]);
 
     }
+
+    /**
+     * Method edit
+     */
+    public function edit(Request $request)
+    {
+//        Offer::findOrFail($offer_id);
+        $offer = Offer::find($request->offer_id); // search in given table by Id only
+
+        if (!$offer) {
+            return response()->json([
+                'status' => false,
+                'msg' => 'هذا العرض غير موجود',
+            ]);
+        }
+        $offer = Offer::select('id', 'name_ar', 'name_en', 'price', 'photo', 'details_ar', 'details_en')->find($request->offer_id);
+            return  view('ajaxoffers.edit', compact('offer'));
+
+    }
+
+    /**
+     * updateOffer
+     */
+//    public function update(OfferRequest $request, $offer_id){
+    public function update(Request $request){
+        // validation request
+
+        // check if Offer exists
+        $offer = Offer::find($request -> offer_id);
+        if(!$offer) {
+            return response()->json([
+                'status' => false,
+                'msg' => 'هذا العرض غير موجود',
+            ]);
+        }
+
+        // update Data
+        $offer -> update($request ->all());
+        return response() -> json([
+            'status'=> true,
+            'msg'=> 'تم التحديث بنجاح',
+        ]);
+    }
+
 }
