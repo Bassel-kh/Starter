@@ -87,6 +87,10 @@ php artisan make:model Models\Video
 
 #064----------------------------------------------------
 #064 - Laravel delete from database with redirect messages
+#066----------------------------------------------------
+#066 - laravel how to Insert data to database using Ajax - Ajax Crud
+php artisan make:controller ControllerName
+php artisan make:controller OfferController
 
 
 
