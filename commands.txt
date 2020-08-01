@@ -95,6 +95,7 @@ php artisan make:controller OfferController
 #067 - Laravel save image to database using Ajax and show response json
 #068 - laravel delete from database using Ajax- Ajax crud لارافل مع اجاكس
 #069 - laravel update database using Ajax
+#081 - laravel validate ajax request and show error messages - لأارافل اجاكس
 
 
 
