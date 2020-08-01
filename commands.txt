@@ -97,6 +97,12 @@ php artisan make:controller OfferController
 #069 - laravel update database using Ajax
 #081 - laravel validate ajax request and show error messages - لأارافل اجاكس
 
+#071----------------------------------------------------
+#070-laravel Middleware create your custom middleware - لارافل middlewares
+    php artisan make:controller ControllerName
+    php artisan make:controller Auth\CustomAuthController
+
+    php artisan make:middleware CheckAge
 
 
 

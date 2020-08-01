@@ -11,12 +11,17 @@
 |
 */
 
+
+
 Route::get('/', function () {
     return view('welcome');
 });
 
 Auth::routes();
 //Auth::routes([ 'verify' => true]);
+Route::get('/dashboard', function (){
+    return 'Not adult';
+}) -> name('not.adult');
 
 Route::get('/home', 'HomeController@index')->name('home')->middleware('verified');
 
@@ -54,7 +59,14 @@ Route::group(['prefix' => 'ajax_offers'], function (){
     Route::get('edit/{offer_id}', 'OfferController@edit') -> name('ajax.offers.edit');
     Route::post('update', 'OfferController@update') -> name('ajax.offers.update');
 
-
 });
 ##################################### End Ajax Route #####################################
+
+
+##################################### Begin Authentication && Guards ###################################
+Route::group([ 'middleware' => 'CheckAge', 'namespace' => 'Auth'], function (){
+    Route::get('adults','CustomAuthController@adult') -> name('adult');
+});
+
+##################################### End Authentication && Guards #####################################
 
