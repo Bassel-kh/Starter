@@ -68,5 +68,10 @@ Route::group([ 'middleware' => 'CheckAge', 'namespace' => 'Auth'], function (){
     Route::get('adults','CustomAuthController@adult') -> name('adult');
 });
 
+
+Route::get('site','Auth\CustomAuthController@site') ->middleware('auth:web') -> name('site');
+Route::get('admin','Auth\CustomAuthController@admin') ->middleware('auth:admin')-> name('admin');
+
+
 ##################################### End Authentication && Guards #####################################
 

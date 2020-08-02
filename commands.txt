@@ -99,10 +99,13 @@ php artisan make:controller OfferController
 
 #071----------------------------------------------------
 #070-laravel Middleware create your custom middleware - لارافل middlewares
+
     php artisan make:controller ControllerName
     php artisan make:controller Auth\CustomAuthController
 
     php artisan make:middleware CheckAge
+#071 - laravel multi guards multiple authentication guards لارافل
+
 
 
 
