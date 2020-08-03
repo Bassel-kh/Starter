@@ -84,6 +84,7 @@ php artisan make:listener IncreaseCounter
 
 php artisan make:model Models\Video
 #063 - Laravel events and Listener with youtub viewer example
+#073 V - حل تاسك ومشكله عدم زياده مشاهدات فيديو اليويتيوب الشخص المسجل
 
 #064----------------------------------------------------
 #064 - Laravel delete from database with redirect messages
