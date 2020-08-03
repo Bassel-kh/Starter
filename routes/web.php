@@ -17,8 +17,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
-//Auth::routes([ 'verify' => true]);
+//Auth::routes();
+Auth::routes([ 'verify' => true]);
 Route::get('/dashboard', function (){
     return 'Not adult';
 }) -> name('not.adult');
@@ -71,6 +71,10 @@ Route::group([ 'middleware' => 'CheckAge', 'namespace' => 'Auth'], function (){
 
 Route::get('site','Auth\CustomAuthController@site') ->middleware('auth:web') -> name('site');
 Route::get('admin','Auth\CustomAuthController@admin') ->middleware('auth:admin')-> name('admin');
+
+Route::get('admin/login','Auth\CustomAuthController@adminLogin')-> name('admin.login');
+Route::post('admin/login','Auth\CustomAuthController@checkAdminLogin')-> name('save.admin.login');
+
 
 
 ##################################### End Authentication && Guards #####################################
