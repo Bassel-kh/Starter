@@ -79,3 +79,11 @@ Route::post('admin/login','Auth\CustomAuthController@checkAdminLogin')-> name('s
 
 ##################################### End Authentication && Guards #####################################
 
+##################################### Begin relations Routes #####################################
+
+Route::get('has_one','Relation\RelationsController@hasOneRelation');
+
+
+
+
+##################################### End relations Routes #####################################
