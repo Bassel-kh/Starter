@@ -111,7 +111,7 @@ php artisan make:controller OfferController
 #075 -laravel One To One Relationship and With method- علاقة one to one
     php artisan make:model phone
     php artisan make:controller Relation\RelationsController
-#076-laravel whereHas ,whereDoesnotHave,With RelationShips
+#076-laravel whereHas ,whereDoesntHave,With RelationShips
 
 
 
