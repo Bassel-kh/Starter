@@ -39,7 +39,7 @@ class User extends Authenticatable implements MustVerifyEmail // by me  implemen
 
     ############################ Begin relations ##################################
     public  function phone(){
-        return @$this -> hasOne('App\Models\Phone','user_id');
+        return @$this -> hasOne('App\Models\phone','user_id');
     }
 
     ############################ End relations ##################################

@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class phone extends Model
+class Phone extends Model
 {
     protected $table = "phone"; // use this when Model_name != Table_name in database
     protected  $fillable =['id', 'cod', 'phone', 'user_id'];// important for update and insert
