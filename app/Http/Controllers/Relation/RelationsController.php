@@ -105,5 +105,30 @@ class RelationsController extends Controller
 
     }
 
+    // get all hospitals which must have doctors
+    public function hospitalsHasDoctors(){
+        $hospitals = \App\Models\Hospital::whereHas('doctors')->get();
+        return view('doctors.hospitals', compact('hospitals'));
+
+    }
+    // get all hospitals which must have only male doctors
+    public function hospitalsHaveOnlyMaleDoctors()
+    {
+        return  $hospitals = \App\Models\Hospital::whereHas('doctors', function ($q){
+            $q -> where('gender', 1);
+        })->with('doctors')->get();
+
+//        $hospitals = \App\Models\Hospital::whereHas('doctors', function ($q){
+//            $q -> where('gender', 1);
+//        })->get();
+//        return view('doctors.hospitals', compact('hospitals'));
+
+    }
+
+    // get hospitals which don't have doctors
+    public function hospitalsDontHaveDoctors(){
+       return $hospitals = \App\Models\Hospital::whereDoesntHave('doctors')-> get();
+    }
+
 
 }

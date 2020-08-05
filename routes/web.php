@@ -99,6 +99,10 @@ Route::get('hospitals','Relation\RelationsController@hospitals');
 
 Route::get('doctors/{hospital_id}','Relation\RelationsController@doctors')-> name('hospitals.doctors');
 
+Route::get('hospitals_has_doctors','Relation\RelationsController@hospitalsHasDoctors');
+Route::get('hospitals_has_doctors_male','Relation\RelationsController@hospitalsHaveOnlyMaleDoctors');
+Route::get('hospitals_not_has_doctors_male','Relation\RelationsController@hospitalsDontHaveDoctors');
+
 
 ################################### End One To Many Relationship #######################
 

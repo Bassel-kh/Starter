@@ -116,6 +116,7 @@ php artisan make:controller OfferController
     php artisan make:model Models\Hospital
     php artisan make:model Models\Doctor
 #078 - How to get data using one to many relationship by doctor example
+#079 - laravel whereHas , whereDoesNotHave , with relationship one to many علاقه
 
 
 
