@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Relation;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+
 class RelationsController extends Controller
 {
     public function hasOneRelation(){
@@ -41,6 +42,7 @@ class RelationsController extends Controller
 
     }
 
+    ################# One to One Relation Method ##################
     public function getUserHasPhone(){
         $user = \App\User::whereHas('phone') -> get();
         return $user;
@@ -59,4 +61,49 @@ class RelationsController extends Controller
 
         return $user;
     }
+
+    ################### One To Many Relation Method ##############
+    public function getHospitalDoctors()
+    {
+        $hospital = \App\Models\Hospital::find(1);  // Hospital::where('id',1) -> first();  //Hospital::first();
+
+        // return  $hospital -> doctors;   // return hospital doctors
+
+        $hospital = \App\Models\Hospital::with('doctors')->find(1);
+        //return  $hospital;
+        //return $hospital -> name;
+
+
+        $doctors = $hospital->doctors;
+
+//        foreach ($doctors as $doctor){
+//            echo  $doctor -> name.'<br>';
+//         }
+
+        $doctor = \App\Models\Doctor::find(2);
+
+        return $doctor->hospital->name;
+
+
+    }
+
+    public function hospitals(){
+//        $hospitals = \App\Models\Hospital::get();
+        $hospitals = \App\Models\Hospital::select('id','name','address') -> get();
+
+        return view('doctors.hospitals', compact('hospitals'));
+    }
+
+    public function doctors($hospital_id){
+        // should have validation
+
+
+        $hospital = \App\Models\Hospital::find($hospital_id);
+        $doctors = $hospital -> doctors;
+
+        return view('doctors.doctors', compact('doctors'));
+
+    }
+
+
 }

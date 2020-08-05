@@ -82,13 +82,24 @@ Route::post('admin/login','Auth\CustomAuthController@checkAdminLogin')-> name('s
 ##################################### Begin relations Routes #####################################
 
 Route::get('has_one','Relation\RelationsController@hasOneRelation');
+
 Route::get('has_one_reverse','Relation\RelationsController@hasOneRelationReverse');
 
 Route::get('get_user_has_phone','Relation\RelationsController@getUserHasPhone');
+
 Route::get('get_user_not_has_phone','Relation\RelationsController@getUserNotHasPhone');
+
 Route::get('get_user_has_phone_with_condition','Relation\RelationsController@getUserWhereHasPhoneWithCondition');
 
+################################### Begin One To Many Relationship #####################
+
+Route::get('hospital_has_many_doctors','Relation\RelationsController@getHospitalDoctors');
+
+Route::get('hospitals','Relation\RelationsController@hospitals');
+
+Route::get('doctors/{hospital_id}','Relation\RelationsController@doctors')-> name('hospitals.doctors');
 
 
+################################### End One To Many Relationship #######################
 
 ##################################### End relations Routes #####################################

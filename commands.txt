@@ -112,8 +112,10 @@ php artisan make:controller OfferController
     php artisan make:model phone
     php artisan make:controller Relation\RelationsController
 #076-laravel whereHas ,whereDoesntHave,With RelationShips
-
-
+#077-laravel one to many relationship with real example - علاقة one to many laravel
+    php artisan make:model Models\Hospital
+    php artisan make:model Models\Doctor
+#078 - How to get data using one to many relationship by doctor example
 
 
 
