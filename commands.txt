@@ -118,6 +118,7 @@ php artisan make:controller OfferController
 #078 - How to get data using one to many relationship by doctor example
 #079 - laravel whereHas , whereDoesNotHave , with relationship one to many علاقه
 
+#080 - laravel one to many relationship delete data from database العلاقات
 
 
 

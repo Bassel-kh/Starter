@@ -92,16 +92,19 @@ Route::get('get_user_not_has_phone','Relation\RelationsController@getUserNotHasP
 Route::get('get_user_has_phone_with_condition','Relation\RelationsController@getUserWhereHasPhoneWithCondition');
 
 ################################### Begin One To Many Relationship #####################
-
+// get data Routes
 Route::get('hospital_has_many_doctors','Relation\RelationsController@getHospitalDoctors');
 
-Route::get('hospitals','Relation\RelationsController@hospitals');
+Route::get('hospitals','Relation\RelationsController@hospitals') -> name('hospital.all');
 
 Route::get('doctors/{hospital_id}','Relation\RelationsController@doctors')-> name('hospitals.doctors');
 
 Route::get('hospitals_has_doctors','Relation\RelationsController@hospitalsHasDoctors');
 Route::get('hospitals_has_doctors_male','Relation\RelationsController@hospitalsHaveOnlyMaleDoctors');
 Route::get('hospitals_not_has_doctors_male','Relation\RelationsController@hospitalsDontHaveDoctors');
+
+// delete data Route
+Route::get('hospitals/{hospital_id}','Relation\RelationsController@deleteHospital') -> name('hospital.delete');
 
 
 ################################### End One To Many Relationship #######################

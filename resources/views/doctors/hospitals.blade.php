@@ -28,7 +28,11 @@
                             <td>{{ $hospital -> id }}</td>
                             <td>{{ $hospital -> name }}</td>
                             <td>{!! $hospital -> address !!}</td>
-                            <td><a href="{{route('hospitals.doctors', $hospital -> id )}}" class="btn btn-success"> عرض الأطباء</a></td>
+                            <td>
+                                <a href="{{route('hospitals.doctors', $hospital -> id )}}" class="btn btn-success"> عرض الأطباء</a>
+                                <a href="{{route('hospital.delete', $hospital -> id )}}" class="btn btn-danger"> حذف المشفى</a>
+
+                            </td>
                         </tr>
                         @endforeach
                     @endif

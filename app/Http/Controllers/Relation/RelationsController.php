@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Relation;
 
 use App\Http\Controllers\Controller;
+use App\Models\Hospital;
 use Illuminate\Http\Request;
 
 
@@ -62,7 +63,7 @@ class RelationsController extends Controller
         return $user;
     }
 
-    ################### One To Many Relation Method ##############
+    ################### Begin One To Many Relation Method ##############
     public function getHospitalDoctors()
     {
         $hospital = \App\Models\Hospital::find(1);  // Hospital::where('id',1) -> first();  //Hospital::first();
@@ -130,5 +131,25 @@ class RelationsController extends Controller
        return $hospitals = \App\Models\Hospital::whereDoesntHave('doctors')-> get();
     }
 
+    ############Delete Methods ##############
+    public function deleteHospital($hospital_id){
+        $hospital = Hospital::find($hospital_id);
+
+        if(!$hospital)
+            abort('404');
+       // Note: $hospital -> delete(); // Wrong method becuse it has one to many relationship
+
+        # Steps to delete Hospital
+        #step 1
+        // Delete doctors in this hospital
+        $hospital -> doctors() -> delete();
+        #step
+        // Delete  hospital
+        $hospital -> delete();
+
+        return redirect() -> route('hospital.all');
+    }
+
+    ################### End One To Many Relation Method ##############
 
 }
