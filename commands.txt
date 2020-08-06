@@ -106,6 +106,8 @@ php artisan make:controller OfferController
 
     php artisan make:middleware CheckAge
 #071 - laravel multi guards multiple authentication guards لارافل
+
+#################### one to many relationship ###################################
 #074------------------------------------------------------
 #074 - laravel Relationships شرح العلاقات بين الجداول بمثال شبيه بفيزيتا
 #075 -laravel One To One Relationship and With method- علاقة one to one
@@ -119,8 +121,12 @@ php artisan make:controller OfferController
 #079 - laravel whereHas , whereDoesNotHave , with relationship one to many علاقه
 
 #080 - laravel one to many relationship delete data from database العلاقات
+
+##################### many to many relationship ###########################
+
 #082 - laravel many to many relationship - علاقه many to many laravel
 #083 - laravel many to many relationship insert data to database Attach
+#084 laravel many to many sync attach and syncWithoutDetaching شرح العلاقات
 
 
 

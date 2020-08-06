@@ -38,7 +38,7 @@
 
 
                     <div class="form-group">
-                        <label for="exampleInputEmail1">أحتر طبيب</label>
+                        <label for="exampleInputEmail1">أختر طبيب</label>
                         <select class="form-control" name="doctor_id" >
                             @if(isset($doctors) && $doctors -> count() > 0)
                             @foreach($doctors as $doctor)
