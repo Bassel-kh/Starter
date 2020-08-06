@@ -11,7 +11,7 @@
 |
 */
 
-
+define('PAGINATION_COUNT' , 5);
 
 Route::get('/', function () {
     return view('welcome');

@@ -63,6 +63,7 @@ class OfferController extends Controller
             'details_' . LaravelLocalization::getCurrentLocale() . ' as details'
         ) ->limit(10)-> get(); // return collection
         return view('ajaxoffers.all', compact('offers'));
+
     }
     /**
      *   Methode Delete

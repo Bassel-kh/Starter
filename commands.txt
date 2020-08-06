@@ -135,4 +135,8 @@ php artisan make:controller OfferController
 #086 - laravel has many through relationship - شرح علاقه has many through
         php artisan make:model Models\Country
 
+#87---------------------------------------------------------
+#087 - Laravel pagination how to paginate database results
+
+
 

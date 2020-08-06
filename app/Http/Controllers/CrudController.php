@@ -156,9 +156,26 @@ class CrudController extends Controller
 //    }
 
     protected function getAllOffers(){
-        $offers = Offer::select('id', 'price', 'name_' . LaravelLocalization::getCurrentLocale() . ' as name',
-            'details_' . LaravelLocalization::getCurrentLocale() . ' as details', 'photo') -> get(); // return collection
-        return view('offers.all', compact('offers'));
+//        $offers = Offer::select(
+//            'id',
+//            'price',
+//            'name_' . LaravelLocalization::getCurrentLocale() . ' as name',
+//            'details_' . LaravelLocalization::getCurrentLocale() . ' as details',
+//            'photo') -> get(); // return collection
+//        return view('offers.all', compact('offers'));
+//
+
+        /////////////////// paginate result
+
+         $offers = Offer::select(
+            'id',
+            'price',
+            'photo',
+            'name_' . LaravelLocalization::getCurrentLocale() . ' as name',
+            'details_' . LaravelLocalization::getCurrentLocale() . ' as details'
+        ) ->limit(10)-> paginate(PAGINATION_COUNT);
+
+        return view('offers.pagination', compact('offers'));
     }
 
     public function getVideo(){
