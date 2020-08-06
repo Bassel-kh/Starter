@@ -193,6 +193,12 @@ class RelationsController extends Controller
         return 'success';
     }
 
-    ################### Begin Many To Many Relation Method ##############
+    public function getPatientDoctor(){
+         $patient = \App\Models\Patient::find(1);
+
+        return $patient -> doctor;
+    }
+
+    ################### End Many To Many Relation Method ##############
 
 }

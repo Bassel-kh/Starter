@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Doctor extends Model
 {
     protected $table = "doctors"; // use this when Model_name != Table_name in database
-    protected  $fillable =['id', 'name', 'title','hospital_id','created_at', 'updated_at'];// important for update and insert
+    protected  $fillable =['id', 'name', 'title','hospital_id','created_at', 'updated_at','medical_id'];// important for update and insert
     protected  $hidden = ['created_at', 'updated_at','pivot'];
     public $timestamps = true; // the timestamps will not insert to table
 

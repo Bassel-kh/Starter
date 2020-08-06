@@ -120,5 +120,6 @@ Route::post('saveServices-to-doctor','Relation\RelationsController@saveServicesT
 
 ################################### End Many To Many Relationship #######################
 
+Route::get('has_0ne_through','Relation\RelationsController@getPatientDoctor');
 
 ##################################### End relations Routes #####################################
