@@ -132,4 +132,7 @@ php artisan make:controller OfferController
        php artisan make:model Models\Patient
        php artisan make:model Models\Medical
 
+#086 - laravel has many through relationship - شرح علاقه has many through
+        php artisan make:model Models\Country
+
 

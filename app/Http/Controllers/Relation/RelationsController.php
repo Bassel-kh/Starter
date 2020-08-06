@@ -199,6 +199,21 @@ class RelationsController extends Controller
         return $patient -> doctor;
     }
 
+    public function getCountryHospitals(){
+        return $country = \App\Models\Country::with('hospitals')-> find(1);
+
+    }
+
+    public function getCountryDoctors(){
+        $country = \App\Models\Country::find(1);
+
+//        return $country -> doctors;
+        // task 1
+        return $country = \App\Models\Country::with('doctors')-> find(1);
+
+    }
+
+
     ################### End Many To Many Relation Method ##############
 
 }
