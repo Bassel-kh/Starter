@@ -119,6 +119,7 @@ php artisan make:controller OfferController
 #079 - laravel whereHas , whereDoesNotHave , with relationship one to many علاقه
 
 #080 - laravel one to many relationship delete data from database العلاقات
+#082 - laravel many to many relationship - علاقه many to many laravel
 
 
 

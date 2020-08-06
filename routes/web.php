@@ -109,4 +109,13 @@ Route::get('hospitals/{hospital_id}','Relation\RelationsController@deleteHospita
 
 ################################### End One To Many Relationship #######################
 
+################################### Begin Many To Many Relationship #####################
+
+Route::get('doctors_services','Relation\RelationsController@getDoctorServices') -> name('doctor.service');
+
+Route::get('service_doctors','Relation\RelationsController@getServiceDoctors') -> name('doctor.service');
+
+################################### End Many To Many Relationship #######################
+
+
 ##################################### End relations Routes #####################################

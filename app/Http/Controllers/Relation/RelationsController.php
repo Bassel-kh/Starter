@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Relation;
 
 use App\Http\Controllers\Controller;
+use App\Models\Doctor;
 use App\Models\Hospital;
+use App\Models\Service;
 use Illuminate\Http\Request;
 
 
@@ -151,5 +153,24 @@ class RelationsController extends Controller
     }
 
     ################### End One To Many Relation Method ##############
+//////////////////////////////////////////////////////////////////////////
+    ################### Begin Many To Many Relation Method ##############
+    public function getDoctorServices(){
+//         $doctor = Doctor::find(1);
+//        return $doctor ->services;
+        return $doctor = Doctor::with('services')->find(1);
+
+    }
+    public function getServiceDoctors(){
+//        $doctors = Service::find(1);
+//        return $doctors -> doctors;
+
+//        return $doctors = Service::with('doctors')->find(1);
+        return $doctors = Service::with(['doctors' => function($q){
+            $q -> select('doctors.id','name','title');
+        }])->find(1);
+    }
+
+    ################### Begin Many To Many Relation Method ##############
 
 }
