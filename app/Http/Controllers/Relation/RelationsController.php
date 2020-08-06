@@ -171,6 +171,28 @@ class RelationsController extends Controller
         }])->find(1);
     }
 
+    public function getDoctorServicesById($doctor_id){
+        $doctor = Doctor::find($doctor_id);
+        $services = $doctor->services;  //doctor services
+
+        $doctors = Doctor::select('id', 'name')->get();
+        $allServices = Service::select('id', 'name')->get(); // all db serves
+
+        return view('doctors.services', compact('services', 'doctors', 'allServices'));
+    }
+
+    public function saveServicesToDoctors(Request $request)
+    {
+
+        $doctor = Doctor::find($request->doctor_id);
+        if (!$doctor)
+            return abort('404');
+        // $doctor ->services()-> attach($request -> servicesIds);  // many to many insert to database
+        $doctor ->services()-> sync($request -> servicesIds);
+
+        return 'success';
+    }
+
     ################### Begin Many To Many Relation Method ##############
 
 }

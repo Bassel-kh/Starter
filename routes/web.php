@@ -115,6 +115,9 @@ Route::get('doctors_services','Relation\RelationsController@getDoctorServices') 
 
 Route::get('service_doctors','Relation\RelationsController@getServiceDoctors') -> name('doctor.service');
 
+Route::get('doctors/services/{doctor_id}','Relation\RelationsController@getDoctorServicesById') -> name('doctors.services');
+Route::post('saveServices-to-doctor','Relation\RelationsController@saveServicesToDoctors')-> name('save.doctors.services');
+
 ################################### End Many To Many Relationship #######################
 
 
