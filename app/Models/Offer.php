@@ -13,6 +13,11 @@ class Offer extends Model
     public $timestamps = false; // the timestamps will not insert to table
 
     // register global Scope
+    /**
+     * @var mixed|string
+     */
+
+
     protected static function boot()
     {
         parent::boot();
@@ -30,4 +35,9 @@ class Offer extends Model
     }
 
     #############################################
+    // mutator
+    public  function setNameEnAttribute($val){
+        $this -> attributes['name_en'] = strtoupper($val);
+    }
+
 }

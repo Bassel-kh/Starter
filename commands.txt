@@ -144,5 +144,8 @@ php artisan make:controller OfferController
 
 #089 - laravel global scope vs local scopes - شرح Scopes
 
+#90---------------------------------------------------------
+#090 - Laravel Accessors & Mutators for Models
+
 
 

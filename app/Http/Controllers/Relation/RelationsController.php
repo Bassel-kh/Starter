@@ -216,4 +216,22 @@ class RelationsController extends Controller
 
     ################### End Many To Many Relation Method ##############
 
+    ############### assessor method ################
+    public function getDoctors(){
+//      return Doctor::select('id','name','gender') -> get();
+        /*
+        $doctors = Doctor::select('id','name','gender') -> get();
+            if(isset($doctors) & $doctors -> count() > 0){
+                foreach ($doctors as $doctor){
+                    $doctor -> gender =  $doctor -> gender ==1? 'male':'female';
+                }
+            }
+
+        return $doctors;
+        */
+        return Doctor::select('id','name','gender') -> get();
+
+    }
+    ########################################
+
 }

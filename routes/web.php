@@ -127,3 +127,10 @@ Route::get('has_one_through_country_hospital','Relation\RelationsController@getC
 Route::get('has_many_through','Relation\RelationsController@getCountryDoctor');
 
 ##################################### End relations Routes #####################################
+
+#################################### Begin Accessors & Mutators ####################################
+
+Route::get('accessors','Relation\RelationsController@getDoctors'); // get data
+
+
+#################################### End Accessors & Mutators ######################################
