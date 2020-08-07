@@ -6,6 +6,7 @@ use App\Events\VideoViewer;
 use App\Http\Requests\OfferRequest;
 use App\Models\Offer;
 use App\Models\Video;
+use App\Scopes\OfferScope;
 use App\Traits\OfferTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -206,7 +207,16 @@ public function getAllInactiveOffers(){
 //    $inactive = Offer::where('status',0) ->get(); // all inactive offers (status ==0 )
 
 //    return $inactiveOffers = Offer::whereNotNull('details_ar') -> inactive()->get(); // all inactive offers (status ==0 )
-    return $inactiveOffers = Offer::invalid()->get(); // all Invalid offers (status ==0 && details_ar == null)
+
+    // use local scope
+//    return $inactiveOffers = Offer::invalid()->get(); // all Invalid offers (status ==0 && details_ar == null)
+
+            // use Global Scope
+//        return $inactiveOffers = Offer::get();
+
+            // how to remove global scope
+    return $inactiveOffers = Offer::withoutGlobalScope(OfferScope::class)->get();
+
 
 
 }

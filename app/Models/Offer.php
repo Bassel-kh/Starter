@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Scopes\OfferScope;
 use Illuminate\Database\Eloquent\Model;
 
 class Offer extends Model
@@ -11,6 +12,12 @@ class Offer extends Model
     protected  $hidden = ['created_at', 'updated_at'];
     public $timestamps = false; // the timestamps will not insert to table
 
+    // register global Scope
+    protected static function boot()
+    {
+        parent::boot();
+        static::addGlobalScope(new OfferScope);
+    }
 
     ##################### Local Scopes #################
 

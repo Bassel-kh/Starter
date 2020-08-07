@@ -142,5 +142,7 @@ php artisan make:controller OfferController
 #088 - what is laravel scopes & laravel model scopes query
     DatatBase{ https://drive.google.com/file/d/1_w9bkji1AgJe5yrf-pU4h-VK44HkMaRO/view }
 
+#089 - laravel global scope vs local scopes - شرح Scopes
+
 
 
