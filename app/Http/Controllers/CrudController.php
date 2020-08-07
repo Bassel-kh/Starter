@@ -197,4 +197,17 @@ class CrudController extends Controller
 //        return $file_name;
 //    }
 
+
+public function getAllInactiveOffers(){
+        // where whereNull whereNotNull whereIN
+     //Offer::whereNotNull('details_ar')->get();
+
+    // Offer::get();
+//    $inactive = Offer::where('status',0) ->get(); // all inactive offers (status ==0 )
+
+//    return $inactiveOffers = Offer::whereNotNull('details_ar') -> inactive()->get(); // all inactive offers (status ==0 )
+    return $inactiveOffers = Offer::invalid()->get(); // all Invalid offers (status ==0 && details_ar == null)
+
+
+}
 }

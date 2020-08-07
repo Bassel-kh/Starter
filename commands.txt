@@ -138,5 +138,9 @@ php artisan make:controller OfferController
 #87---------------------------------------------------------
 #087 - Laravel pagination how to paginate database results
 
+#88---------------------------------------------------------
+#088 - what is laravel scopes & laravel model scopes query
+    DatatBase{ https://drive.google.com/file/d/1_w9bkji1AgJe5yrf-pU4h-VK44HkMaRO/view }
+
 
 
